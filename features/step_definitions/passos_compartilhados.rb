@@ -45,13 +45,13 @@ Quando /^seleciono "([^\"]*)" como data e hora$/ do |time|
 end
 
 Então /^preciso ver "([^\"]*)"$/ do |texto|
-  response.should contain(texto)
+  should_contain_text(texto)
 end
 
 Então /^preciso ver os seguintes registros:$/ do |tabela|
   tabela.hashes.each do |hash|
     hash.each_value do |valor|
-      response.should contain(valor)
+      should_contain_text(valor)
     end
   end
 end
@@ -59,7 +59,7 @@ end
 Então /^não devo ver os seguintes registros:$/ do |tabela|
   tabela.hashes.each do |hash|
     hash.each_value do |valor|
-      response.should_not contain(valor)
+      should_not_contain_text(valor)
     end
   end
 end

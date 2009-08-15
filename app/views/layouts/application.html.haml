@@ -4,5 +4,5 @@
   %head
     %title Financeiro
   %body
-    = render 'compartilhados/flash', :locals => { :flash => flash }
+    = render(:partial => 'compartilhados/flash', :locals => { :flash => flash })
     = yield

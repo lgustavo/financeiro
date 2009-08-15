@@ -1,4 +1,4 @@
-- [ :notice, :error, :warning ].each |m|
+- [ :notice, :error, :warning ].each do |m|
   - unless flash[m].blank?
     %div{:class => m}
       = flash[m]

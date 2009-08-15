@@ -7,3 +7,4 @@ Funcionalidade: Gerenciar duplicatas a receber
 
   Cenario: Adicionar duplicata válida
     Dado que estou em cadastrar duplicata a receber
+    Então preciso ver "Nova Duplicata a Receber"
