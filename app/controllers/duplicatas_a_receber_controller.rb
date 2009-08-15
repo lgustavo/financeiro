@@ -1,4 +1,3 @@
-
 class DuplicatasAReceberController < ApplicationController
 
   before_filter :load_duplicata, :only => [ :new, :edit, :update, :create, :destroy ]
@@ -38,7 +37,7 @@ class DuplicatasAReceberController < ApplicationController
   end
 
   def new
-    edit
+    render :new
   end
 
   def edit
@@ -52,3 +51,4 @@ class DuplicatasAReceberController < ApplicationController
   end
 
 end
+
