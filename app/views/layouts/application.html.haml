@@ -1,3 +1,9 @@
 !!! XML
 !!!
-  %html
+%html
+  %head
+    %title Financeiro
+  %body
+    = render 'compartilhados/flash', :locals => { :flash => flash }
+    = yield
+
