@@ -26,6 +26,7 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'haml'
+  config.gem 'mislav-will_paginate', :version => '>=2.3.8', :lib => 'will_paginate', :source => "http://gems.github.com"
 
   if [ 'cucumber', 'test' ].include?( RAILS_ENV )
     config.gem 'cucumber',    :lib => false,        :version => '>=0.3.94' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber'))
