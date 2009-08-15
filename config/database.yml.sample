@@ -1,0 +1,27 @@
+basic: &BASIC
+  <% if is_jruby? %>
+  adapter: jdbcpostgresql
+  <% else %>
+  adapter: postgresql
+  <% end %>
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  username: postgres
+  password: postgres
+  host: localhost
+
+development:
+  <<: *BASIC
+  database: financeiro_development
+
+test: &TEST
+  <<: *BASIC
+  database: financeiro_test
+
+production:
+  <<: *BASIC
+  database: financeiro_production
+
+cucumber:
+  <<: *TEST

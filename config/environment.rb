@@ -6,6 +6,10 @@ RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+def is_jruby?
+  RUBY_PLATFORM =~ /java/
+end
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -13,6 +17,8 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
+
+  config.threadsafe!
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
@@ -23,11 +29,12 @@ Rails::Initializer.run do |config|
 
   if [ 'cucumber', 'test' ].include?( RAILS_ENV )
     config.gem 'cucumber',    :lib => false,        :version => '>=0.3.94' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber'))
-    config.gem 'webrat',      :lib => false,        :version => '>=0.4.4' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))
     config.gem 'rspec',       :lib => false,        :version => '>=1.2.6' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec'))
     config.gem 'rspec-rails', :lib => 'spec/rails', :version => '>=1.2.6' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
     config.gem "thoughtbot-shoulda", :lib => "factory_girl", :source => "http://gems.github.com"
     config.gem 'thoughtbot-factory_girl', :lib => false
+    config.gem 'bmabey-database_cleaner', :lib => false
+    config.gem 'selenium-client', :lib => false, :version => '1.2.14'
   end
 
   # Only load the plugins named here, in the order given (default is alphabetical).

@@ -1,0 +1,4 @@
+
+class DuplicatasAReceberController < ApplicationController
+  
+end

@@ -10,7 +10,8 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
-    
+    when /^cadastrar (.*)$/i
+      send( "new_#{$1.gsub(/\s/, '_')}_path" )
     # Add more mappings here.
     # Here is a more fancy example:
     #
