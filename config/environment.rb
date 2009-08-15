@@ -23,11 +23,12 @@ Rails::Initializer.run do |config|
 
   if [ 'cucumber', 'test' ].include?( RAILS_ENV )
     config.gem 'cucumber',    :lib => false,        :version => '>=0.3.94' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber'))
-    config.gem 'webrat',      :lib => false,        :version => '>=0.4.4' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))
     config.gem 'rspec',       :lib => false,        :version => '>=1.2.6' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec'))
     config.gem 'rspec-rails', :lib => 'spec/rails', :version => '>=1.2.6' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
     config.gem 'thoughtbot-shoulda', :lib => false
     config.gem 'thoughtbot-factory_girl', :lib => false
+    config.gem 'bmabey-database_cleaner', :lib => false
+    config.gem 'selenium-client', :lib => false, :version => '1.2.14'
   end
 
   # Only load the plugins named here, in the order given (default is alphabetical).

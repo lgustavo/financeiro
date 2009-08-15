@@ -5,6 +5,13 @@ require 'cucumber/rails/world'
 
 # Comment out the next line if you don't want Cucumber Unicode support
 require 'cucumber/formatter/unicode'
+require 'factory_girl'
+require File.join( RAILS_ROOT, 'features', 'support', 'selenium_adapter' )
+
+Factory.definition_file_paths = [
+  File.join(RAILS_ROOT, 'spec', 'factories')
+]
+Factory.find_definitions
 
 # Comment out the next line if you don't want transactions to
 # open/roll back around each scenario
@@ -14,12 +21,4 @@ Cucumber::Rails.use_transactional_fixtures
 # (e.g. rescue_action_in_public / rescue_responses / rescue_from)
 Cucumber::Rails.bypass_rescue
 
-require 'webrat'
-require 'cucumber/webrat/table_locator' # Lets you do table.diff!(table_at('#my_table').to_a)
-
-Webrat.configure do |config|
-  config.mode = :rails
-end
-
 require 'cucumber/rails/rspec'
-require 'webrat/core/matchers'
