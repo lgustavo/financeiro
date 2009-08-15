@@ -118,6 +118,9 @@ pt-BR:
       duplicata_a_receber:
         one: 'Duplicata a receber'
         other: 'Duplicatas a receber'
+    attributes:
+      duplicata_a_receber:
+        data_de_emissao: "Data de emissão"
     errors:
       template:
         header:
@@ -125,6 +128,7 @@ pt-BR:
           other: "Não foi possível gravar {{model}}: {{count}} erros."
         body: "Por favor, verifique o(s) seguinte(s) campo(s):"
       messages:
+        attribute_greater_than: "deve ser maior que {{attribute}}"
         inclusion: "não está incluído na lista"
         exclusion: "não está disponível"
         invalid: "não é válido"
