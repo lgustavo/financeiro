@@ -2,3 +2,5 @@
 *.pid
 database.yml
 nbproject
+config/initializers/new_rails_defaults.rb
+
