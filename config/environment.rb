@@ -26,7 +26,7 @@ Rails::Initializer.run do |config|
     config.gem 'webrat',      :lib => false,        :version => '>=0.4.4' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))
     config.gem 'rspec',       :lib => false,        :version => '>=1.2.6' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec'))
     config.gem 'rspec-rails', :lib => 'spec/rails', :version => '>=1.2.6' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
-    config.gem 'thoughtbot-shoulda', :lib => false
+    config.gem "thoughtbot-shoulda", :lib => "factory_girl", :source => "http://gems.github.com"
     config.gem 'thoughtbot-factory_girl', :lib => false
   end
 
@@ -50,3 +50,4 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
   config.i18n.default_locale = :'pt-BR'
 end
+
