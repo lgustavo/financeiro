@@ -1,6 +1,3 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
-
 var TUBFORM = {}
 
 TUBFORM.Application = function() {
@@ -13,51 +10,52 @@ TUBFORM.Application = function() {
             autoLoad:true,
             layout:'border',
             items: [
-                {
-                    region: 'north',
-                    title: 'ERP Tubform',
-                    height:54,
-                    tbar: {
-                        items: [
-                        {
-                            xtype:'splitbutton',
-                            text:'Financeiro',
-                            menu:[{
-                                    text:'Contas a receber',
-                                    handler: function() {
-                                        var center = viewport.getComponent('center');
-                                        center.add({
-                                            id:'contas_a_receber',
-                                            autoLoad: {
-                                                url:'404.html'
-                                            }
-                                        }).show();
-                                        center.getActiveTab().setTitle('Contas a Receber');
-                                        center.doLayout(true);
+            {
+                region: 'north',
+                title: 'ERP Tubform',
+                height:54,
+                tbar: {
+                    items: [
+                    {
+                        xtype:'splitbutton',
+                        text:'Financeiro',
+                        menu:[{
+                            text:'Contas a receber',
+                            handler: function() {
+                                var center = viewport.getComponent('center');
+                                center.add({
+                                    id:'contas_a_receber',
+                                    autoLoad: {
+                                        url:'404.html'
                                     }
-                                }]
+                                }).show();
+                                center.getActiveTab().setTitle('Contas a Receber');
+                                center.doLayout(true);
+                            }
                         }]
-                    }
-                },
-                {
-                     region: 'south',
-                     title: 'Sul',
-                     html: 'Precisa de informação aqui?',
-                     split: true,
-                     height: 100,
-                     minHeight: 100,
-                     collapsible:true,
-                     collapsed:true
-                },
-                {
-                     region: 'center',id:'center',
-                     xtype: 'tabpanel',
-                    activeTab:0,
-                     items: {
-                       title: 'Default tab',
-                       html: 'aqui vai alguma coisa'
-                     }
+                    }]
                 }
+            },
+            {
+                region: 'south',
+                title: 'Sul',
+                html: 'Precisa de informação aqui?',
+                split: true,
+                height: 100,
+                minHeight: 100,
+                collapsible:true,
+                collapsed:true
+            },
+            {
+                region: 'center',
+                id:'center',
+                xtype: 'tabpanel',
+                activeTab:0,
+                items: {
+                    title: 'Default tab',
+                    html: 'aqui vai alguma coisa'
+                }
+            }
             ]
         });
     };
