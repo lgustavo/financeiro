@@ -20,6 +20,20 @@ describe DuplicataAReceber do
      it { should_not allow_value(valor).for( :tipo_de_cobranca ) }
    end
 
+    describe 'validações nas datas' do
+
+      before do
+        @duplicata = DuplicataAReceber.new
+      end
+
+      it ' nâo deve aceitar data de vencimento anterior a data de emissao' do
+        @duplicata.data_de_emissao = 1.day.ago.to_date
+        @duplicata.data_de_vencimento = 2.days.ago.to_date
+        @duplicata.should have(1).error_on( :data_de_vencimento )
+      end
+
+    end
+
   end
 
   describe 'em associaçôes' do
