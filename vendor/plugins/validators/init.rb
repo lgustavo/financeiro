@@ -15,6 +15,7 @@ ActiveRecord::Base.class_eval do
             I18n.t( 'activerecord.errors.messages.attribute_greater_than',
               :attribute => model.class.human_attribute_name( greater_than_attribute.to_s ) ) )
         end
+        true
       end
     end
 
