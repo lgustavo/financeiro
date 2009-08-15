@@ -23,13 +23,15 @@ TUBFORM.Application = function() {
                             xtype:'splitbutton',
                             text:'Financeiro',
                             menu:[{
-                                    text:'Contas a receber',
+                                    text:'Duplicatas a receber',
                                     handler: function() {
                                         var center = viewport.getComponent('center');
                                         center.add({
-                                            id:'contas_a_receber',
+                                            id:'duplicatas_a_receber',
                                             autoLoad: {
-                                                url:'404.html'
+                                                scripts:true,
+                                                disableCaching:true,
+                                                url:'/duplicatas_a_receber'
                                             }
                                         }).show();
                                         center.getActiveTab().setTitle('Contas a Receber');
