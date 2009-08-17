@@ -9,7 +9,9 @@ TUBFORM.Application = function() {
                 { region: 'north', title: 'ERP Tubform', height:54, tbar: { items: [
                         {
                             xtype:'splitbutton',
-                            text:'Cadastros', menu:[{
+                            text:'Cadastros',
+                            menu:[
+                                {
                                     text:'Clientes', handler: function() {
                                         var center = viewport.getComponent('center');
                                         center.add({ id:'clientes', autoLoad: {
@@ -20,8 +22,7 @@ TUBFORM.Application = function() {
                                         center.getActiveTab().setTitle('Cadastro de Clientes');
                                         center.doLayout(true);
                                     }
-
-                            }]
+                                }]
                         },
                         {
                             xtype:'splitbutton',
