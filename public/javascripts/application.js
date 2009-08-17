@@ -7,6 +7,25 @@ Tubform.App = function() {
     init: function(){
 
       var menuCadastros = new Ext.menu.Menu({
+        items: [
+          {
+            text:'Clientes',
+            handler: function() {
+              var centerPanel = viewport.getComponent('centerPanel');
+              centerPanel.add({
+                closable: true,
+                id:'clientes_path',
+                autoLoad: {
+                            scripts:true,
+                            disableCaching:true,
+                            url:'/clientes'
+                }
+              }).show();
+              centerPanel.getActiveTab().setTitle('Clientes');
+              centerPanel.doLayout(true);
+            }
+          }
+        ]
       });
 
       var menuFinanceiro = new Ext.menu.Menu({
@@ -16,7 +35,7 @@ Tubform.App = function() {
             handler: function() {
               var centerPanel = viewport.getComponent('centerPanel');
               centerPanel.add({
-                id:'duplicatas_a_receber',
+                id:'duplicatas_a_receber_path',
                 autoLoad: {
                             scripts:true,
                             disableCaching:true,
