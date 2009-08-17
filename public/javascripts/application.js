@@ -99,6 +99,6 @@ TUBFORM.App = function() {
 Ext.onReady(function(){
 
   Ext.QuickTips.init();
-  Tubform.App.init();
+  TUBFORM.App.init();
 });
 

@@ -15,4 +15,3 @@ grid = new TUBFORM.GridPanel({
   renderTo: 'grid-clientes',
   entities: 'clientes'
 });
-
