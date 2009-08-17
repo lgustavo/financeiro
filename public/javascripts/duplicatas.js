@@ -34,7 +34,7 @@ TUBFORM.Duplicatas = function() {
             renderer: function(value) {
                 return Date.parseDate(value, 'Y-m-d').format('d/m/Y');},
           dataIndex:'data_de_vencimento'},
-        {header:'Valor', renderer: Ext.util.Format.numberRenderer('0,000.00'), dataIndex:'valor', width:100 }
+        {header:'Valor', renderer: 'usMoney', dataIndex:'valor', width:100 }
     ];
     var bbar = new Ext.PagingToolbar({
         pageSize:10,

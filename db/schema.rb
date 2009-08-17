@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(:version => 20090814214356) do
     t.integer "grupo_de_despesa_id",                   :null => false
   end
 
+  create_table "rubricas", :force => true do |t|
+    t.string   "codigo"
+    t.string   "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "vendedores", :force => true do |t|
     t.string "nome", :null => false
   end
