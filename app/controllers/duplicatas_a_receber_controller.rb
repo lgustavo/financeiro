@@ -17,14 +17,14 @@ class DuplicatasAReceberController < ApplicationController
       format.html
       format.json {
         render :json => {
-          :metadata => {
+          :metaData => {
             :totalProperty => 'total',
             :root => 'results',
             :id => 'id',
             :fields => [
               {:name => 'id', :mapping => 'id'},
               {:name => 'data_de_emissao', :mapping => 'data_de_emissao'},
-              {:name => 'cliente', :mapping => 'duplicata_a_receber.cliente'},
+              {:name => 'cliente_id', :mapping => 'cliente_id'},
               {:name => 'data_de_vencimento', :mapping => 'data_de_vencimento'},
               {:name => 'valor', :mapping => 'valor'}
             ]
@@ -53,4 +53,3 @@ class DuplicatasAReceberController < ApplicationController
   end
 
 end
-

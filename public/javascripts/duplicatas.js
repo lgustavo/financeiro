@@ -25,10 +25,16 @@ TUBFORM.Duplicatas = function() {
     var window_duplicatas;
     var columns = [
         {header:'Código', dataIndex:'id', width:80},
-        {header:'Emissão', dataIndex:'data_de_emissao', width:80},
-        {header:'Cliente', dataIndex:'duplicata_a_receber.cliente', width:300},
-        {header:'Vencimento', dataIndex:'data_de_vencimento', width:80},
-        {header:'Valor', dataIndex:'valor', width:100}
+        {header:'Emissão', width:80,
+            renderer: function(value) {
+                return Date.parseDate(value, 'Y-m-d').format('d/m/Y');},
+            dataIndex:'data_de_emissao' },
+        {header:'Cliente', dataIndex:'cliente_id', width:300},
+        {header:'Vencimento', width:80,
+            renderer: function(value) {
+                return Date.parseDate(value, 'Y-m-d').format('d/m/Y');},
+          dataIndex:'data_de_vencimento'},
+        {header:'Valor', renderer: Ext.util.Format.numberRenderer('0,000.00'), dataIndex:'valor', width:100 }
     ];
     var bbar = new Ext.PagingToolbar({
         pageSize:10,

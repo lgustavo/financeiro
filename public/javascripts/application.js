@@ -36,6 +36,7 @@ Tubform.App = function() {
               var centerPanel = viewport.getComponent('centerPanel');
               centerPanel.add({
                 id:'duplicatas_a_receber_path',
+                closable: true,
                 autoLoad: {
                             scripts:true,
                             disableCaching:true,
@@ -99,4 +100,3 @@ Ext.onReady(function(){
   Ext.QuickTips.init();
   Tubform.App.init();
 });
-
