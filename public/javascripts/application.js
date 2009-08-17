@@ -1,20 +1,21 @@
 Ext.BLANK_IMAGE_URL = 'javascripts/ext/resources/images/default/s.gif';
-Ext.ns('Tubform');
+Ext.ns('TUBFORM');
 Ext.Ajax.method = 'GET';
 
-Tubform.App = function() {
+TUBFORM.App = function() {
+
   return {
+
     init: function(){
 
       var menuCadastros = new Ext.menu.Menu({
         items: [
           {
             text:'Clientes',
+            url: 'clientes',
             handler: function() {
-              var centerPanel = viewport.getComponent('centerPanel');
               centerPanel.add({
                 closable: true,
-                id:'clientes_path',
                 autoLoad: {
                             scripts:true,
                             disableCaching:true,
@@ -33,7 +34,6 @@ Tubform.App = function() {
           {
             text:'Duplicatas a receber',
             handler: function() {
-              var centerPanel = viewport.getComponent('centerPanel');
               centerPanel.add({
                 id:'duplicatas_a_receber_path',
                 closable: true,
@@ -76,7 +76,7 @@ Tubform.App = function() {
       var centerPanel = new Ext.TabPanel({
         id: 'centerPanel',
         region: 'center',
-        activeTab:0,
+        activeTab: 0,
         items:[{
           title: 'Principal',
           closable: false
@@ -97,6 +97,8 @@ Tubform.App = function() {
 }();
 
 Ext.onReady(function(){
+
   Ext.QuickTips.init();
   Tubform.App.init();
 });
+
