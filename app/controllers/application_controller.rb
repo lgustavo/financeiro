@@ -7,4 +7,13 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+  def load_page
+    @page = params[:page] || '1'
+    @per_page = (params[:limit] || '30').to_i
+    @per_page = 30 if @per_page > 30
+    true
+  end
+
 end
+

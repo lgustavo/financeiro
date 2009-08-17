@@ -9,13 +9,13 @@ TUBFORM.PagingToolbar = Ext.extend(Ext.PagingToolbar, {
       displayInfo: true,
       items: ['-', {
         text: 'Novo',
-        handler: function(){}
+        handler: create
       },{
         text: 'Alterar',
-        handler: function(){}
+        handler: edit
       }, {
         text: 'Excluir',
-        handler: function(){}
+        handler: destroy
       }]
     });
 
