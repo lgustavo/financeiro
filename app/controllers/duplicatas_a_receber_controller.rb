@@ -1,4 +1,3 @@
-
 class DuplicatasAReceberController < ApplicationController
 
   before_filter :load_duplicata, :only => [ :new, :edit, :update, :create, :destroy ]
@@ -20,12 +19,14 @@ class DuplicatasAReceberController < ApplicationController
         render :json => {
           :metadata => {
             :totalProperty => 'total',
-            :root => 'result',
+            :root => 'results',
             :id => 'id',
             :fields => [
               {:name => 'id', :mapping => 'id'},
-              {:name => 'created_at', :mapping => 'created_at'},
-              {:name => 'updated_at', :mapping => 'updated_at'}
+              {:name => 'data_de_emissao', :mapping => 'data_de_emissao'},
+              {:name => 'cliente', :mapping => 'duplicata_a_receber.cliente'},
+              {:name => 'data_de_vencimento', :mapping => 'data_de_vencimento'},
+              {:name => 'valor', :mapping => 'valor'}
             ]
           },
           :results => @duplicatas,
@@ -38,7 +39,7 @@ class DuplicatasAReceberController < ApplicationController
   end
 
   def new
-    edit
+    render :new
   end
 
   def edit
@@ -52,3 +53,4 @@ class DuplicatasAReceberController < ApplicationController
   end
 
 end
+

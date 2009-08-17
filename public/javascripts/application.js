@@ -1,43 +1,58 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
-
 var TUBFORM = {}
-
 TUBFORM.Application = function() {
-
     var viewport;
-
     var init = function() {
-
         viewport = new Ext.Viewport({
             autoLoad:true,
             layout:'border',
             items: [
-                {
-                    region: 'north',
-                    title: 'ERP Tubform',
-                    height:54,
-                    tbar: {
-                        items: [
+                { region: 'north', title: 'ERP Tubform', height:54, tbar: { items: [
+                        {
+                            xtype:'splitbutton',
+                            text:'Cadastros', menu:[{
+                                    text:'Clientes', handler: function() {
+                                        var center = viewport.getComponent('center');
+                                        center.add({ id:'clientes', autoLoad: {
+                                                scripts:true,
+                                                disableCaching:true,
+                                                url:'/clientes'
+                                            }}).show();
+                                        center.getActiveTab().setTitle('Cadastro de Clientes');
+                                        center.doLayout(true);
+                                    }
+
+                            }]
+                        },
                         {
                             xtype:'splitbutton',
                             text:'Financeiro',
-                            menu:[{
-                                    text:'Duplicatas a receber',
-                                    handler: function() {
+                            menu:[
+                                {
+                                    text:'Duplicatas a receber', handler: function() {
                                         var center = viewport.getComponent('center');
-                                        center.add({
-                                            id:'duplicatas_a_receber',
-                                            autoLoad: {
+                                        center.add({ id:'duplicatas_a_receber', autoLoad: {
                                                 scripts:true,
                                                 disableCaching:true,
                                                 url:'/duplicatas_a_receber'
-                                            }
-                                        }).show();
-                                        center.getActiveTab().setTitle('Contas a Receber');
+                                            }}).show();
+                                        center.getActiveTab().setTitle('Duplicatas a Receber');
+                                        center.doLayout(true);
+                                    }, iconCls: 'feed-icon'
+                                },
+                                {
+                                    text:'Duplicatas a Pagar', handler: function() {
+                                        var center = viewport.getComponent('center');
+                                        center.add({ id:'duplicatas_a_pagar', autoLoad: {
+                                                scripts:true,
+                                                disableCaching:true,
+                                                url:'breve.html'
+                                            }}).show();
+                                        center.getActiveTab().setTitle('Duplicatas a Pagar');
                                         center.doLayout(true);
                                     }
-                                }]
+                                }
+
+                            ]
                         }]
                     }
                 },
@@ -56,8 +71,8 @@ TUBFORM.Application = function() {
                      xtype: 'tabpanel',
                     activeTab:0,
                      items: {
-                       title: 'Default tab',
-                       html: 'aqui vai alguma coisa'
+                       title: 'Home',
+                       html: 'Página para apresentação da Empresa e outras informações importantes.'
                      }
                 }
             ]

@@ -16,19 +16,19 @@ if(!TUBFORM) {
     var TUBFORM = {};
 }
 
-TUBFORM.Duplicatas = function() {
+TUBFORM.Clientes = function() {
     var grid;
     var store = new Ext.data.Store({
-        url:'/duplicatas_a_receber.json',
+        url:'/clientes.json',
         reader: new Ext.data.JsonReader()
     });
-    var window_duplicatas;
+    var window_clientes;
     var columns = [
         {header:'Código', dataIndex:'id', width:80},
-        {header:'Emissão', dataIndex:'data_de_emissao', width:80},
-        {header:'Cliente', dataIndex:'duplicata_a_receber.cliente', width:300},
-        {header:'Vencimento', dataIndex:'data_de_vencimento', width:80},
-        {header:'Valor', dataIndex:'valor', width:100}
+        {header:'Nome', dataIndex:'nome', width:150},
+        {header:'CPF', dataIndex:'cpf', width:80},
+        {header:'CNPJ', dataIndex:'cnpj', width:150},
+        {header:'Saldo Devedor', dataIndex:'saldo_devedor', width:200}
     ];
     var bbar = new Ext.PagingToolbar({
         pageSize:10,
@@ -38,11 +38,11 @@ TUBFORM.Duplicatas = function() {
             {
                 pressed:'true', enableToggle:true, text:'Adicionar',
                 toggleHandler: function() {
-                    window_duplicatas = new Ext.Window({
-                        title:'Nova Duplicata', width: 300, height:300,modal:true,
-                        autoLoad: { scripts:true, url:'/duplicatas_a_receber/new' }
+                    window_clientes = new Ext.Window({
+                        title:'Novo Cliente', width: 300, height:300,modal:true,
+                        autoLoad: { scripts:true, url:'/cliente/new' }
                     });
-                    window_duplicatas.show();
+                    window_clientes.show();
                 }
             }
         ]
@@ -66,5 +66,4 @@ TUBFORM.Duplicatas = function() {
     };
 }();
 
-Ext.onReady(TUBFORM.Duplicatas.init);
-
+Ext.onReady(TUBFORM.Clientes.init);
