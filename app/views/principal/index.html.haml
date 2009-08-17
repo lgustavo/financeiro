@@ -1,0 +1,17 @@
+!!! XML
+!!!
+%html
+  %head
+    %title Financeiro
+    = stylesheet_link_tag '../javascripts/ext/resources/css/ext-all'
+    = javascript_include_tag 'jquery'
+    = javascript_include_tag '../javascripts/ext/adapter/ext/ext-base'
+    = javascript_include_tag '../javascripts/ext/ext-all.js'
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'tubform/window'
+    = javascript_include_tag 'tubform/store'
+    = javascript_include_tag 'tubform/paging_toolbar'
+    = javascript_include_tag 'tubform/grid_panel'
+  %body
+    = render(:partial => 'compartilhados/flash', :locals => { :flash => flash })
+
