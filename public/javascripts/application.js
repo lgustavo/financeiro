@@ -1,90 +1,83 @@
-var TUBFORM = {}
-TUBFORM.Application = function() {
-    var viewport;
-    var init = function() {
-        viewport = new Ext.Viewport({
-            autoLoad:true,
-            layout:'border',
-            items: [
-                { region: 'north', title: 'ERP Tubform', height:54, tbar: { items: [
-                        {
-                            xtype:'splitbutton',
-                            text:'Cadastros', menu:[{
-                                    text:'Clientes', handler: function() {
-                                        var center = viewport.getComponent('center');
-                                        center.add({ id:'clientes', autoLoad: {
-                                                scripts:true,
-                                                disableCaching:true,
-                                                url:'/clientes'
-                                            }}).show();
-                                        center.getActiveTab().setTitle('Cadastro de Clientes');
-                                        center.doLayout(true);
-                                    }
+Ext.BLANK_IMAGE_URL = 'javascripts/ext/resources/images/default/s.gif';
+Ext.ns('Tubform');
+Ext.Ajax.method = 'GET';
 
-                            }]
-                        },
-                        {
-                            xtype:'splitbutton',
-                            text:'Financeiro',
-                            menu:[
-                                {
-                                    text:'Duplicatas a receber', handler: function() {
-                                        var center = viewport.getComponent('center');
-                                        center.add({ id:'duplicatas_a_receber', autoLoad: {
-                                                scripts:true,
-                                                disableCaching:true,
-                                                url:'/duplicatas_a_receber'
-                                            }}).show();
-                                        center.getActiveTab().setTitle('Duplicatas a Receber');
-                                        center.doLayout(true);
-                                    }, iconCls: 'feed-icon'
-                                },
-                                {
-                                    text:'Duplicatas a Pagar', handler: function() {
-                                        var center = viewport.getComponent('center');
-                                        center.add({ id:'duplicatas_a_pagar', autoLoad: {
-                                                scripts:true,
-                                                disableCaching:true,
-                                                url:'breve.html'
-                                            }}).show();
-                                        center.getActiveTab().setTitle('Duplicatas a Pagar');
-                                        center.doLayout(true);
-                                    }
-                                }
+Tubform.App = function() {
+  return {
+    init: function(){
 
-                            ]
-                        }]
-                    }
-                },
-                {
-                     region: 'south',
-                     title: 'Sul',
-                     html: 'Precisa de informação aqui?',
-                     split: true,
-                     height: 100,
-                     minHeight: 100,
-                     collapsible:true,
-                     collapsed:true
-                },
-                {
-                     region: 'center',id:'center',
-                     xtype: 'tabpanel',
-                    activeTab:0,
-                     items: {
-                       title: 'Home',
-                       html: 'Página para apresentação da Empresa e outras informações importantes.'
-                     }
+      var menuCadastros = new Ext.menu.Menu({
+      });
+
+      var menuFinanceiro = new Ext.menu.Menu({
+        items: [
+          {
+            text:'Duplicatas a receber',
+            handler: function() {
+              var centerPanel = viewport.getComponent('centerPanel');
+              centerPanel.add({
+                id:'duplicatas_a_receber',
+                autoLoad: {
+                            scripts:true,
+                            disableCaching:true,
+                            url:'/duplicatas_a_receber'
                 }
-            ]
-        });
-    };
+              }).show();
+              centerPanel.getActiveTab().setTitle('Duplicatas a Receber');
+              centerPanel.doLayout(true);
+            }
+          }
+        ]
+      });
 
-    return {
-        init: function() {
-            init();
-        }
-    };
+      var northBar = new Ext.Toolbar({
+        items: [
+          {
+            xtype: 'splitbutton',
+            text:'Cadastros',
+            menu: menuCadastros
+          },
+          {
+            xtype: 'splitbutton',
+            text:'Financeiro',
+            menu: menuFinanceiro
+          }
+        ]
+      });
+
+      var northPanel = new Ext.Panel({
+        id: 'northPanel',
+        region: 'north',
+        title: 'ERP Tubform',
+        height: 54,
+        tbar: northBar
+      });
+
+      var centerPanel = new Ext.TabPanel({
+        id: 'centerPanel',
+        region: 'center',
+        activeTab:0,
+        items:[{
+          title: 'Principal',
+          closable: false
+        }]
+      });
+
+      var viewport = new Ext.Viewport ({
+        layout: 'border',
+        items:[
+          northPanel,
+          centerPanel
+        ]
+      });
+
+    }
+  }
+
 }();
 
-Ext.onReady(TUBFORM.Application.init);
+Ext.onReady(function(){
+  Ext.QuickTips.init();
+  Tubform.App.init();
+});
 
