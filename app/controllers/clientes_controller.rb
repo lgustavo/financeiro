@@ -13,16 +13,13 @@ class ClientesController < ApplicationController
       format.html
       format.json {
         render :json => {
-          :metadata => {
+          :metaData => {
             :totalProperty => 'total',
             :root => 'results',
             :id => 'id',
             :fields => [
               {:name => 'id', :mapping => 'id'},
-              {:name => 'nome', :mapping => 'nome'},
-              {:name => 'cpf', :mapping => 'cnpj'},
-              {:name => 'cnpj', :mapping => 'cnpj'},
-              {:name => 'saldo_devedor', :mapping => 'saldo_devedor'}
+              {:name => 'nome', :mapping => 'nome'}
             ]
           },
           :results => @clientes, :total => @clientes.total_entries
