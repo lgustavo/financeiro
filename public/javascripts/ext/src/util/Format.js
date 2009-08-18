@@ -149,9 +149,9 @@ Ext.util.Format = function(){
             }
             v = whole + sub;
             if(v.charAt(0) == '-'){
-                return '-$' + v.substr(1);
+                return '-R$ ' + v.substr(1);
             }
-            return "$" +  v;
+            return "R$ " +  v;
         },
 
         /**

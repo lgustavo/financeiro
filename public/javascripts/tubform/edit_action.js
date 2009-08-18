@@ -23,4 +23,3 @@ TUBFORM.EditAction = function(entity, entities) {
   };
  }
 };
-

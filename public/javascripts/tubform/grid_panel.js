@@ -8,9 +8,8 @@ TUBFORM.GridPanel = Ext.extend(Ext.grid.GridPanel, {
         forceFit: true
       },
       sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
-      height: 340,
-      width: 800,
       iconCls: 'icon-grid',
+      height: 300,
       autoShow: true
     });
 
@@ -18,7 +17,6 @@ TUBFORM.GridPanel = Ext.extend(Ext.grid.GridPanel, {
     this.loadBar();
 
     TUBFORM.GridPanel.superclass.constructor.call(this);
-
   },
 
   loadStore: function(){
@@ -43,4 +41,3 @@ TUBFORM.GridPanel = Ext.extend(Ext.grid.GridPanel, {
 });
 
 Ext.reg('tgrid', TUBFORM.GridPanel);
-

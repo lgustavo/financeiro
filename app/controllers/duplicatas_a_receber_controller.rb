@@ -8,22 +8,16 @@ class DuplicatasAReceberController < ApplicationController
 
     respond_to do |format|
       format.html #index.html.haml
-      format.json { render :json => { :metaData => { :totalProperty => 'total',
-                                                     :root => 'results',
-                                                     :id => 'id',
-                                                     :fields => [
-                                                          {:name => 'id', :mapping => 'id'},
-                                                          {:name => 'data_de_emissao', :mapping => 'data_de_emissao'},
-                                                          {:name => 'cliente_id', :mapping => 'cliente_id'},
-                                                          {:name => 'data_de_vencimento', :mapping => 'data_de_vencimento'},
-                                                          {:name => 'valor', :mapping => 'valor'}
-                                                     ]
-                                                   },
-                                      :results => @duplicatas,
-                                      :total => @duplicatas.total_entries
-
-                                    }.to_json(:include => [])
-                  }
+      format.json { render :json => { :metaData => {
+              :totalProperty => 'total', :root => 'results', :id => 'id',
+              :fields => [
+                 {:name => 'id', :mapping => 'id'},
+                 {:name => 'data_de_emissao', :mapping => 'data_de_emissao'},
+                 {:name => 'data_de_vencimento', :mapping => 'data_de_vencimento'},
+                 {:name => 'cliente_id', :mapping => 'cliente_id'},
+                 {:name => 'valor', :mapping => 'valor'} ] },
+               :results => @duplicatas,
+               :total => @duplicatas.total_entries}.to_json(:include => []) }
     end
   end
 
